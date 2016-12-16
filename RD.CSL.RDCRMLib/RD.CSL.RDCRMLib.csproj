@@ -51,7 +51,6 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <Content Include="packages.config" />
     <Content Include="rd_\clientside\fonts\fontawesome_webfont.eot" />
     <Content Include="rd_\clientside\fonts\fontawesome_webfont.ttf" />
     <Content Include="rd_\clientside\fonts\fontawesome_webfont.woff" />

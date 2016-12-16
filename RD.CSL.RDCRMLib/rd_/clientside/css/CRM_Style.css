@@ -1,0 +1,787 @@
+﻿/*#region jQuery */
+
+/*
+    jQuery Styles
+******************************/
+
+/*! jQuery UI - v1.10.4 - 2015-06-02
+* http://jqueryui.com
+* Includes: jquery.ui.core.css, jquery.ui.datepicker.css
+* Copyright 2015 jQuery Foundation and other contributors; Licensed MIT */
+
+/* Layout helpers
+----------------------------------*/
+.ui-helper-hidden {
+	display: none;
+}
+.ui-helper-hidden-accessible {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+.ui-helper-reset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	line-height: 1.3;
+	text-decoration: none;
+	font-size: 100%;
+	list-style: none;
+}
+.ui-helper-clearfix:before,
+.ui-helper-clearfix:after {
+	content: "";
+	display: table;
+	border-collapse: collapse;
+}
+.ui-helper-clearfix:after {
+	clear: both;
+}
+.ui-helper-clearfix {
+	min-height: 0; /* support: IE7 */
+}
+.ui-helper-zfix {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	opacity: 0;
+	filter:Alpha(Opacity=0);
+}
+
+.ui-front {
+	z-index: 100;
+}
+
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-disabled {
+	cursor: default !important;
+}
+
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.ui-icon {
+	display: block;
+	text-indent: -99999px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+}
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Overlays */
+.ui-widget-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.ui-datepicker {
+	width: 17em;
+	padding: .2em .2em 0;
+	display: none;
+}
+.ui-datepicker .ui-datepicker-header {
+	position: relative;
+	padding: .2em 0;
+}
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+	position: absolute;
+	top: 2px;
+	width: 1.8em;
+	height: 1.8em;
+}
+.ui-datepicker .ui-datepicker-prev-hover,
+.ui-datepicker .ui-datepicker-next-hover {
+	top: 1px;
+}
+.ui-datepicker .ui-datepicker-prev {
+	left: 2px;
+}
+.ui-datepicker .ui-datepicker-next {
+	right: 2px;
+}
+.ui-datepicker .ui-datepicker-prev-hover {
+	left: 1px;
+}
+.ui-datepicker .ui-datepicker-next-hover {
+	right: 1px;
+}
+.ui-datepicker .ui-datepicker-prev span,
+.ui-datepicker .ui-datepicker-next span {
+	display: block;
+	position: absolute;
+	left: 50%;
+	margin-left: -8px;
+	top: 50%;
+	margin-top: -8px;
+}
+.ui-datepicker .ui-datepicker-title {
+	margin: 0 2.3em;
+	line-height: 1.8em;
+	text-align: center;
+}
+.ui-datepicker .ui-datepicker-title select {
+	font-size: 1em;
+	margin: 1px 0;
+}
+.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year {
+	width: 49%;
+}
+.ui-datepicker table {
+	width: 100%;
+	font-size: .9em;
+	border-collapse: collapse;
+	margin: 0 0 .4em;
+}
+.ui-datepicker th {
+	padding: .7em .3em;
+	text-align: center;
+	font-weight: bold;
+	border: 0;
+}
+.ui-datepicker td {
+	border: 0;
+	padding: 1px;
+}
+.ui-datepicker td span,
+.ui-datepicker td a {
+	display: block;
+	padding: .2em;
+	text-align: right;
+	text-decoration: none;
+}
+.ui-datepicker .ui-datepicker-buttonpane {
+	background-image: none;
+	margin: .7em 0 0 0;
+	padding: 0 .2em;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 0;
+}
+.ui-datepicker .ui-datepicker-buttonpane button {
+	float: right;
+	margin: .5em .2em .4em;
+	cursor: pointer;
+	padding: .2em .6em .3em .6em;
+	width: auto;
+	overflow: visible;
+}
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+	float: left;
+}
+
+/* with multiple calendars */
+.ui-datepicker.ui-datepicker-multi {
+	width: auto;
+}
+.ui-datepicker-multi .ui-datepicker-group {
+	float: left;
+}
+.ui-datepicker-multi .ui-datepicker-group table {
+	width: 95%;
+	margin: 0 auto .4em;
+}
+.ui-datepicker-multi-2 .ui-datepicker-group {
+	width: 50%;
+}
+.ui-datepicker-multi-3 .ui-datepicker-group {
+	width: 33.3%;
+}
+.ui-datepicker-multi-4 .ui-datepicker-group {
+	width: 25%;
+}
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header,
+.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
+	border-left-width: 0;
+}
+.ui-datepicker-multi .ui-datepicker-buttonpane {
+	clear: left;
+}
+.ui-datepicker-row-break {
+	clear: both;
+	width: 100%;
+	font-size: 0;
+}
+
+/* RTL support */
+.ui-datepicker-rtl {
+	direction: rtl;
+}
+.ui-datepicker-rtl .ui-datepicker-prev {
+	right: 2px;
+	left: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-next {
+	left: 2px;
+	right: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-prev:hover {
+	right: 1px;
+	left: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-next:hover {
+	left: 1px;
+	right: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane {
+	clear: right;
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button {
+	float: left;
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current,
+.ui-datepicker-rtl .ui-datepicker-group {
+	float: right;
+}
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header,
+.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
+	border-right-width: 0;
+	border-left-width: 1px;
+}
+
+/*#endregion */
+
+
+/*#region CSS Reset */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1.6;
+
+	font-family: Segoe UI,Tahoma,Arial;
+	font-size: 13px;
+    color: #2a2a2a;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*#endregion */
+
+
+/*#region Custom RD Styles */
+
+/*
+    CUSTOM CRM STYLE (RD)
+*************************************************************************************************************************************/
+body {
+    margin: 0;
+    background-color: #FFF;
+    font-family: 'Segoe UI', Tahoma, Arial;
+    font-size: 11px;
+    padding: 0 20px;
+}
+
+/* On the form the padding is added by CRM */
+body.onform {
+    padding: 0;
+}
+
+/*body.crm2016 {
+    background-color: #efefef;
+}*/
+
+/*body.crm2016 .form section {
+    background-color: #FFF;
+    margin-bottom: 20px;
+    padding: 15px;
+}*/
+
+/*
+    NAVIGATION
+******************************/
+
+nav {
+    position: fixed;
+    top:0;
+    left: 0;
+    background-color: rgb(0, 32, 80);
+    width: 100%;
+    height: 40px;
+    color: #FFFFFF;
+    z-index: 1;
+}
+
+nav h1 {
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    float: left;
+    font-size: 17px;
+    color: #FFFFFF;
+    font-weight: normal;
+}
+
+nav h1::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDUvMTcvMTNsQLk1AAAA4ElEQVQ4jaWSvQ3CMBSEPyN6YAFIQQ8jZAAkUlFnAzICI9DTZARGyAAUoaEFWqoU9EcRRzHBIfycZMn3nt/5zrKRxD/odfS3/wqEXQLmTYQAOAPmVweRpxa/uJLUti4qUfGhrYXuuTYHMTBp1BJPLW27PVMNJM0dXjlI1TIc6xmJpNzhC0n7ijQjDIGNJ9LM2U+BZUWaAhtPzrdwBSJg/c2wKxAAqadfdAn0KXPvgQFwAQ7AHbja3hLI7CVBU8BIyoERsLMHxsCJ54eD+ksXOI9oJK2AGyDg+IHtuRUPgegBKEjGN03zzrUAAAAASUVORK5CYII=');
+    width: 16px;
+    height: 20px;
+    padding: 10px;
+    display: block;
+    content: ' ';
+    float: left;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+nav h1:hover::before {
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAA3NCSVQICAjb4U/gAAAAMFBMVEX///8AIFAAIFAAIFAAIFAAIFAAIFAAIFAAIFAAIFAAIFAAIFAAIFAAIFAAIFAAIFCNJgY8AAAAEHRSTlMAESIzRFVmd4iZqrvM3e7/dpUBFQAAAAlwSFlzAAAK6wAACusBgosNWgAAABZ0RVh0Q3JlYXRpb24gVGltZQAwNS8xNy8xM2xAuTUAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAAAY0lEQVQImWNgQAIcMAYPjKEPY9QzsDmAGfcZZMEMtv8M/Q6cQAb3f+b/DvOBjPz/Nf+9/jMwMN7/Xw+EQOP+QxnxUAbT+///wAyZvys7dt8HMs5W7ti9e/f6/wwhjiBDzeYBANV3LQfJVDgGAAAAAElFTkSuQmCC');
+}
+
+nav h1 a {
+    display: block;
+    padding: 14px 10px 9px 10px;
+    font-size: inherit;
+    color: inherit;
+    text-decoration: none;
+}
+
+nav h1:hover, nav a:hover {
+    background-color: rgb(223, 226, 232);
+    color: #002050;
+    cursor: pointer;
+}
+
+nav ul li {
+    list-style: none;
+    float: left;
+    line-height: 1;
+}
+
+nav ul li a {
+    font-size: 15px;
+    padding: 12px 10px;
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    height: 16px;
+}
+
+nav + .commandbar {
+    margin-top: 50px;
+}
+
+
+/*
+    COMMAND BAR
+******************************/
+.commandbar ul {
+    height: 40px;
+    padding-top: 10px;
+    display: block;
+}
+.commandbar ul li {
+    float: left;
+}
+
+.commandbar ul li a {
+    font-size: 12px;
+    height: 20px;
+    display: block;
+    text-transform: uppercase;
+    padding: 5px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.commandbar ul li:first-child a {
+    margin-left: 0;
+}
+
+.commandbar ul li a:hover {
+    background-color: #D7EBF9;
+    cursor: pointer;
+}
+
+.commandbar ul li i {
+    margin-right: 5px;
+}
+
+.commandbar {
+    clear: both;
+}
+
+/*
+    HEADERS
+******************************/
+h1 {
+    color: #262626;
+    font-size: 3.273em;
+    font-style: normal;
+    font-weight: 100;
+    line-height: 0.55555556;
+    padding: 10px 0 20px;
+}
+.crm2016 h1 {
+    font-weight: 350;
+}
+
+h2 {
+    font-size: 1.909em;
+    color: #1160B7;
+    font-weight: 400;
+    padding: 10px 0 5px;
+}
+
+.crm2013 h2 {
+    color: #666;
+    font-weight: normal;
+}
+
+h3 {
+    color: #000;
+    font-size: 1.091em;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 10px 0 5px;
+}
+body.crm2016 .form section h3 {
+    padding: 0px 0 5px;
+}
+
+.crm2013 h3 {
+    color: #666666;
+    font-weight: bold;
+}
+
+/*
+    LABELS & PARAGRAPHS
+******************************/
+
+label {
+    width: 105px;
+    color: #444;
+}
+
+.crm2013 label {
+    color: #666666;
+}
+
+label[required]:after {
+    content: " *";
+    color: #F00;
+}
+
+label[readonly]:after {
+    display: inline-block;
+    float: right;
+    content: "";
+    background: transparent no-repeat scroll -59px -39px url('data:image/png;base64,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');
+    width: 9px;
+    height: 12px;
+    overflow: hidden;
+    margin-right: 5px;
+}
+
+.showborders label[readonly]:after {
+    margin-top: 3px;
+}
+
+/*
+    INPUTS
+******************************/
+form, form table {
+    /*width: 500px;*/
+    width: 100%;
+}
+
+    .labelcol {
+        width: 105px;
+    }
+
+.showborders input[type=text], .showborders input[type=checkbox], .showborders input[type=radio], .showborders a[data-inlineEdit], .showborders .selectValue {
+    border: solid 1px #CCC !important;
+    margin-top: 5px;
+    margin-bottom: 5px; 
+}
+
+input[type=text], a[data-inlineEdit], .selectValue, .tempinput {
+    width: calc(100% - 20px); /* 100% - margin right */
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Arial;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.091em;
+    -ms-word-wrap: normal;
+    word-wrap: normal;
+    color: #000;
+    padding: 2px 0 3px 4px;
+    margin: 0 0 0 20px;
+    border: solid 1px #FFF;
+    outline-style: none;
+}
+
+    input[type=text]:hover, a[data-inlineEdit]:hover, .selectValue:hover, .hover {
+        border: solid 1px #CCC !important;
+        background-color: #EFEFEF;
+        box-shadow: 3px 3px 5px #EFEFEF;
+        cursor: text;
+    }
+
+    input[type=text]:focus {
+        border: solid 1px #CCC;
+        background-color: #FFFFFF;
+        box-shadow: none;
+    }
+
+    input[type=checkbox], input[type=radio] {
+        margin: 0 0 0 25px;
+    }
+
+
+
+a[data-inlineEdit] {
+    display: block;
+    color: #1160B7;
+}
+
+    a[data-inlineEdit] span {
+        cursor: pointer !important;
+    }
+
+.relativePosition {
+    position: relative;
+}
+
+input.datetime {
+    width: calc(100% - 20px);
+}
+
+.ui-datepicker-trigger, .lookupicon {
+    border-left: solid 1px #CCC;
+    visibility: hidden;
+    z-index: 100;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+}
+
+.showborders .ui-datepicker-trigger, .showborders .lookupicon {
+    top: 7px;
+}
+
+    .ui-datepicker-trigger:hover {
+        cursor: pointer;
+    }
+
+input.datetime:focus + .ui-datepicker-trigger {
+    visibility: visible;
+}
+
+
+select {
+    height: 80px;
+    margin-left: 20px;
+    border: 1px solid #CCC;
+    width: calc(100% - 20px);
+    font-size: 12px;
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Arial;
+    display: none;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+}
+
+.selectValue {
+    cursor: default !important;
+}
+
+a[data-type="lookup"]:hover + .lookupicon {
+    background-color: #EFEFEF;
+}
+
+a[data-type="lookup"]:focus + .lookupicon {
+    background-color: #FFFFFF;
+}
+
+a[data-type="lookup"]:hover + .lookupicon,
+a[data-type="lookup"]:focus + .lookupicon,
+.lookupicon:hover {
+    visibility: visible;
+}
+
+.lookupicon:hover {
+    cursor: pointer;
+}
+
+.ui-datepicker {
+    background-color: #FFFFFF;
+    border: 1px solid #c6c6c6;
+    color: #444444;
+    font-size: 12px;
+    padding: 0;
+    width: 148px !important;
+}
+
+.ui-datepicker-header {
+    background-color: rgb(238, 238, 238);
+    height: 19px;
+}
+
+.ui-datepicker th {
+    font-weight: normal;
+}
+
+.ui-datepicker td {
+    width: 20px;
+    height: 18px;
+    text-align: center;
+    padding: 0;
+    font-size: 12px;
+}
+
+.ui-datepicker td a  {
+    text-align: center;
+    color: #444444;
+}
+
+.ui-datepicker td a:hover  {
+    color: #4294ed;
+}
+
+.ui-datepicker-other-month {
+    color: #b1b1b1;
+}
+
+.ui-state-active {
+    background-color: rgb(177, 214, 240);
+}
+
+.ui-datepicker-prev:hover, .ui-datepicker-next:hover {
+    top: 2px;
+    cursor: pointer;
+}
+
+.ui-datepicker-next:hover {
+    right: 2px;
+}
+
+.ui-datepicker-prev:hover {
+    left: 2px;
+}
+
+.ui-datepicker-prev {
+    background-repeat: no-repeat;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAAA3NCSVQICAjb4U/gAAAABlBMVEX///8zMzM4VIyRAAAAAnRSTlMA/1uRIrUAAAAJcEhZcwAACvAAAArwAUKsNJgAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDUvMTgvMDnN7XE8AAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M0BrLToAAAABtJREFUCJljYEADDgwMBxgYDzAwg0kgGySCAABeIwRGD9qd1gAAAABJRU5ErkJggg==');
+}
+
+.ui-datepicker-next {
+    background-repeat: no-repeat;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAAA3NCSVQICAjb4U/gAAAABlBMVEX///8zMzM4VIyRAAAAAnRSTlMA/1uRIrUAAAAJcEhZcwAACvAAAArwAUKsNJgAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDUvMTgvMDnN7XE8AAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M0BrLToAAAABpJREFUCJljYEAFTAwMzEDUwMB8AEyCRZAAAChlAdQmYJUNAAAAAElFTkSuQmCC');
+}
+
+.ui-datepicker-close {
+    display: none;
+    visibility: hidden;
+}
+
+.ui-datepicker-buttonpane {
+    border: 1px solid #c6c6c6;
+    margin: 0;
+    padding: 0;
+}
+
+.ui-datepicker-current {
+    background: transparent;
+    border: none;
+    color: #444444;
+    width: 100% !important;
+    text-align: center;
+    padding: 10px;
+    outline: none;
+}
+
+.ui-datepicker-trigger {
+    margin-top: -1px;
+}
+
+.ms-crm-InlineDialogBackground {
+    left: 0;
+}
+
+
+
+/*
+    BUTTON
+******************************/
+
+button {
+    background-color: #FFFFFF;
+    border: 1px solid #C6C6C6;
+    color: #444444;
+    margin: 10px 0;
+    min-width: 80px;
+    height: 24px;
+    padding: 0 5px;
+    font-size: 12px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #B1D6F0;
+}
+
+/*#endregion */

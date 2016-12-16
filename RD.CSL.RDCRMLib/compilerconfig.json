@@ -1,0 +1,38 @@
+﻿[
+  {
+    "outputFile": "rd_/clientside/RD.CSL.js",
+    "inputFile": "rd_/clientside/RD.CSL.js"
+  },
+  {
+    "outputFile": "rd_/clientside/scripts/RD.Libraries.BL.js",
+    "inputFile": "rd_/clientside/scripts/RD.Libraries.BL.js"
+  },
+  {
+    "outputFile": "rd_/clientside/scripts/RD.Libraries.CRMControls.js",
+    "inputFile": "rd_/clientside/scripts/RD.Libraries.CRMControls.js"
+  },
+  {
+    "outputFile": "rd_/clientside/scripts/RD.Libraries.CustomActionExecutor.js",
+    "inputFile": "rd_/clientside/scripts/RD.Libraries.CustomActionExecutor.js"
+  },
+  {
+    "outputFile": "rd_/clientside/scripts/RD.Libraries.FormType.js",
+    "inputFile": "rd_/clientside/scripts/RD.Libraries.FormType.js"
+  },
+  {
+    "outputFile": "rd_/clientside/scripts/RD.Libraries.Helpers.js",
+    "inputFile": "rd_/clientside/scripts/RD.Libraries.Helpers.js"
+  },
+  {
+    "outputFile": "rd_/clientside/scripts/RD.Libraries.IBAN.js",
+    "inputFile": "rd_/clientside/scripts/RD.Libraries.IBAN.js"
+  },
+  {
+    "outputFile": "rd_/clientside/scripts/RD.Libraries.PhoneFormat.js",
+    "inputFile": "rd_/clientside/scripts/RD.Libraries.PhoneFormat.js"
+  },
+  {
+    "outputFile": "rd_/clientside/scripts/RD.Libraries.WebAPI.js",
+    "inputFile": "rd_/clientside/scripts/RD.Libraries.WebAPI.js"
+  }
+]

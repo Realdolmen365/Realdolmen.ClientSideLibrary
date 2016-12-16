@@ -1,0 +1,21 @@
+﻿h2 {
+    /* header color */
+    color: #FF0000;
+}
+
+a[data-inlineEdit] {
+    /* global link color */
+    color: #FF0000;
+}
+
+input[type=text]:hover, a[data-inlineEdit]:hover, .selectValue:hover, .hover {
+    /* control shade */
+    background-color: #FF0000;
+    /* control border */
+    border-color: #FF0000;
+}
+
+.ui-state-active {
+    /* selected link effect */
+    background-color: #FF0000;
+}

@@ -1,0 +1,1359 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>RealDolmen Client Side Library</title>
+    <link href="./samples.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="anchor" id="top">&nbsp;</div>
+    <nav>
+        <h1>
+            <a href="#top">RealDolmen Client Side Library</a>
+        </h1>
+        <ul>
+            <li><a href="#RD.CSL">RD.CSL</a></li>
+            <li><a href="#formtype">Formtypes</a></li>
+            <li><a href="#customcontrols">Custom Controls</a></li>
+            <li><a href="#helpers">Helpers</a></li>
+            <li><a href="#crmfetchkit">CrmFetchKit</a></li>
+            <li><a href="#rest">REST</a></li>
+        </ul>
+    </nav>
+    <article>
+        <div class="anchor" id="RD.CSL">&nbsp;</div>
+        <h1>RD.CSL</h1>
+        <p>This is the main JScript library to include on your form and/or html webresources</p>
+        <p>Following components are available:</p>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Parent NameSpace</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><a href="#RD.CSL">RD</a></td>
+                <td>Namespace</td>
+                <td>/</td>
+                <td>The root namespace of this library.</td>
+            </tr>
+            <tr>
+                <td><a href="#usage-log">Log</a></td>
+                <td>Function</td>
+                <td>RD</td>
+                <td>Logs a message to the console.</td>
+            </tr>
+            <tr>
+                <td><a href="#usage-getcontext">GetContext</a></td>
+                <td>Function</td>
+                <td>RD</td>
+                <td>Gets the XRM context object if it is available</td>
+            </tr>
+            <tr>
+                <td><a href="#usage-getclienturl">GetClientURL</a></td>
+                <td>Function</td>
+                <td>RD</td>
+                <td>Gets the current client URL.</td>
+            </tr>
+            <tr>
+                <td><a href="#usage-loadscript">LoadScript</a></td>
+                <td>Function</td>
+                <td>RD</td>
+                <td>Loads a script into the window.</td>
+            </tr>
+            <tr>
+                <td><a href="#helpers">Helpers Library</a></td>
+                <td>Namespace</td>
+                <td>RD.Helpers</td>
+                <td>Provides a set of common helper functionalities.</td>
+            </tr>
+
+            <tr>
+                <td><a href="#formtype">Form Type</a></td>
+                <td>Namespace</td>
+                <td>RD</td>
+                <td>Provides a set of properties to check the current form type.</td>
+            </tr>
+            <tr>
+                <td><a href="#customcontrols">Custom Controls</a></td>
+                <td>Namespace</td>
+                <td>RD</td>
+                <td>Add functionality to the CRM Custom Controls to use in a webresource.</td>
+            </tr>
+            <tr>
+                <td><a href="#crmfetchkit">CrmFetchKit</a></td>
+                <td>Namespace</td>
+                <td>RD</td>
+                <td>A third party library that provides a set of functions to Query CRM using FetchXml.</td>
+            </tr>
+            <tr>
+                <td><a href="#rest">REST</a></td>
+                <td>Namespace</td>
+                <td>RD</td>
+                <td>A third party library that provides a set of functions to comunicate with CRM using oData.</td>
+            </tr>
+        </table>
+
+        <div class="anchor" id="usage-log">&nbsp;</div>
+        <section>
+            <h2>RD.Log()</h2>
+            <h3>Parameters</h3>
+            <dl>
+                <dt>message</dt>
+                <dd>
+                    <p><strong>Type:</strong> String</p>
+                    <p>The message you want to log to the console.</p>
+                </dd>
+            </dl>
+
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <code>
+                    <pre>
+RD.Log("this is an example message");
+            </pre>
+                </code>
+            </div>
+        </section>
+
+        <div class="anchor" id="usage-getcontext">&nbsp;</div>
+        <section>
+            <h2>RD.GetContext()</h2>
+            <h3>Parameters</h3>
+            <dl>
+                <dt>None</dt>
+            </dl>
+
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <pre>
+var rdXrm = RD.GetContext();
+            </pre>
+            </div>
+        </section>
+
+        <div class="anchor" id="usage-getclienturl">&nbsp;</div>
+        <section>
+            <h2>RD.GetClientURL()</h2>
+            <h3>Parameters</h3>
+            <dl>
+                <dt>None</dt>
+            </dl>
+
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <pre>
+var url = RD.GetClientURL();
+            </pre>
+            </div>
+        </section>
+
+        <div class="anchor" id="usage-loadscript">&nbsp;</div>
+        <section>
+            <h2>RD.LoadScript()</h2>
+            <h3>Parameters</h3>
+            <dl>
+                <dt>Path to webresource</dt>
+                <dd>
+                    <p><strong>Type:</strong> String</p>
+                    <p>The relative path to the webresource you want to load.</p>
+                </dd>
+            </dl>
+
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <pre>
+RD.LoadScript("rd_/clientside/scripts/jquery.js");
+//start using jQuery functions here
+            </pre>
+            </div>
+        </section>
+
+        
+
+
+
+
+    </article>
+    <article>
+        <div class="anchor" id="helpers"></div>
+        <h1>Helpers</h1>
+        <p>The RD.Helpers library contains the following helper functions:</p>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><a href="#helpersLog">Log</a></td>
+                <td>Logs a text message to the console.</td>
+            </tr>
+            <tr>
+                <td><a href="#usage-dependantpicklists">DependantPicklists</a></td>
+                <td>Filters one picklist based on the values of another picklist.</td>
+            </tr>
+            <tr>
+                <td><a href="#helpersEqualGuids">GuidsAreEqual</a></td>
+                <td>Compares two GUIDs to see if they are completely equal</td>
+            </tr>
+        </table>
+        <section>
+            <div class="anchor" id="helpersLog">&nbsp;</div>
+            <h2>RD.Helpers.Log()</h2>
+            <h3>Parameters</h3>
+            <dl>
+                <dt>logtext</dt>
+                <dd>
+                    <p><strong>Type:</strong> String
+                    </p>
+                    <p>The text you want to log in the console.</p>
+                </dd>
+            </dl>
+
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <pre>
+RD.Helpers.Log("I want to log this text to the console.");
+            </pre>
+            </div>
+        </section>
+        <div class="anchor" id="usage-dependantpicklists">&nbsp;</div>
+        <section>
+            <h2>RD.Helpers.DependantPicklists()</h2>
+            <h3>Parameters</h3>
+            <dl>
+                <dt>Parent Field Name</dt>
+                <dd>
+                    <p><strong>Type:</strong> String
+                    </p>
+                    <p>The logical name of the field that filters the other field.</p>
+                </dd>
+                <dt>Dependant Field Name</dt>
+                <dd>
+                    <p><strong>Type:</strong> String
+                    </p>
+                    <p>The logical name of the field that will be filtered.</p>
+                </dd>
+                <dt>Mapping</dt>
+                <dd>
+                    <p><strong>Type:</strong> Array
+                    </p>
+                    <p>The mapping between the values of the parent field and the values of the filtered field.</p>
+                </dd>
+            </dl>
+
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <pre>
+var mapping = {
+    200000003: [200000009, 200000010],              //German values
+    200000000: [200000000, 200000001, 200000002],   //English values
+    200000002: [200000006, 200000007, 200000008],   //French values
+    200000001: [200000003, 200000004, 200000005]    //Dutch values
+};
+RD.Helpers.DependantPicklists("new_parentfield", "new_filteredfield", mapping);
+            </pre>
+            </div>
+        </section>
+        <section>
+            <div class="anchor" id="helpersEqualGuids">&nbsp;</div>
+            <h2>RD.Helpers.GuidsAreEqual()</h2>
+            <h3>Parameters</h3>
+            <dl>
+                <dt>Guid1</dt>
+                <dd>
+                    <p>
+                        <strong>Type:</strong> String
+                    </p>
+                    <p>The first GUID you want to compare.</p>
+                </dd>
+            </dl>
+            <dl>
+                <dt>Guid2</dt>
+                <dd>
+                    <p>
+                        <strong>Type:</strong> String
+                    </p>
+                    <p>The second GUID you want to compare.</p>
+                </dd>
+            </dl>
+
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <pre>
+var bool = RD.Helpers.GuidsAreEqual("239B63F7-67E2-406E-A7DB-40C7AC4A2F62", "239B63F7-67E2-406E-A7DB-40C7AC4A2F62");
+            </pre>
+            </div>
+        </section>
+        
+    </article>
+    <article>
+        <div class="anchor" id="formtype">&nbsp;</div>
+        <h1>Formtypes</h1>
+        <p>The RD.FormType contains 9 properties to check the current Form Type:</p>
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>UNDEFINED</td>
+                <td>Returns true is the current form type equals "undefined".</td>
+            </tr>
+            <tr>
+                <td>CREATE</td>
+                <td>Returns true is the current form type equals "Create".</td>
+            </tr>
+            <tr>
+                <td>UPDATE</td>
+                <td>Returns true is the current form type equals "Update".</td>
+            </tr>
+            <tr>
+                <td>READONLY</td>
+                <td>Returns true is the current form type equals "Read Only".</td>
+            </tr>
+            <tr>
+                <td>DISABLED</td>
+                <td>Returns true is the current form type equals "Disabled".</td>
+            </tr>
+            <tr>
+                <td>QUICKCREATE</td>
+                <td>Returns true is the current form type equals "Quick Create".</td>
+            </tr>
+            <tr>
+                <td>BULKEDIT</td>
+                <td>Returns true is the current form type equals "Bulk Edit".</td>
+            </tr>
+            <tr>
+                <td>READOPTIMIZED</td>
+                <td>Returns true is the current form type equals "Read Optimized".</td>
+            </tr>
+            <tr>
+                <td>WEBRESOURCE</td>
+                <td>Returns true is the library is loaded in a HTML Web Resource.</td>
+            </tr>
+        </table>
+
+        <h5>Example</h5>
+        <div class="code">
+            <p>JavaScript</p>
+            <pre>
+if (RD.FormType.UNDEFINED) {
+    //custom logic here
+}
+if (RD.FormType.CREATE) {
+    //custom logic here
+}
+if (RD.FormType.UPDATE) {
+    //custom logic here
+}
+if (RD.FormType.READONLY) {
+    //custom logic here
+}
+if (RD.FormType.DISABLED) {
+    //custom logic here
+}
+if (RD.FormType.QUICKCREATE) {
+    //custom logic here
+}
+if (RD.FormType.BULKEDIT) {
+    //custom logic here
+}
+if (RD.FormType.READOPTIMIZED) {
+    //custom logic here
+}
+if (RD.FormType.WEBRESOURCE) {
+    //custom logic here
+}
+        </pre>
+        </div>
+
+    </article>
+    <article>
+        <div class="anchor" id="customcontrols">&nbsp;</div>
+        <h1>Custom Controls</h1>
+        <p>The Custom Controls namespace provides a function to initialize a custom form that has to behave like a CRM form.</p>
+
+        <section>
+            <h2>RD.CustomControls.Initialize()</h2>
+            <p>Call this function after the page loads, it will initialize all functionality to mimic CRM fields.</p>
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <pre>
+//Wait for the DOM to load
+$(document).ready(function () {
+    //initialize the actions for the custom controls
+    RD.CustomControls.Initialize();
+});
+            </pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>Requirements</h2>
+            <p>To mimic the CRM fields you have to include jQuery &amp; the CRM ClientGlobalContext.js.aspx page before the RD.CSL.js library.</p>
+            <p>jQuery UI is optional and only necessary for the date field.</p>
+            <div class="code">
+                <p>HTML</p>
+                <pre>
+&lt;script src="../../../ClientGlobalContext.js.aspx" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="../scripts/jQuery.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="../scripts/jquery_ui_1.10.4.custom.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="../RD.CSL.js" type="text/javascript"&gt;&lt;/script&gt;
+            </pre>
+            </div>
+            <p>Include the CRM Style css to get mimic the CRM Layout.</p>
+            <h3>CRM 2015 Themes</h3>
+            <p>Theme.css is an optional file that can be included if you run CRM 7.1 (Carina).</p>
+            <p>When you publish a theme this file will be updated so that the custom controls will still resemble the CRM fields.</p>
+            <p>Theming capabilities for custom controls can be installed using the RDCustomControlTheming solution.</p>
+            <h3>Extra Body classes</h3>
+            <p>If you want to use the CRM 2013 style give the body of the page the class "crm2013".</p>
+            <p>If you want to use the page embedded in a form give the body of the page the class "onform". This removes the left padding.</p>
+            <div class="code">
+                <p>HTML</p>
+                <pre>                
+&lt;link href="../css/CRM_Style.css" rel="stylesheet" /&gt;
+&lt;link href="../css/Theme.css" rel="stylesheet" /&gt;
+            </pre>
+            </div>
+        </section>
+
+
+        <h2>Control Types &amp; Features</h2>
+        <p>Following control types and features are available: </p>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><a href="#cc_text">Single line of text</a></td>
+                <td>A regular text input (url, email &amp; telephone formats are available)</td>
+            </tr>
+            <tr>
+                <td><a href="#cc_lookup">Lookup field</a></td>
+                <td>Holds a reference to another entity record.</td>
+            </tr>
+            <tr>
+                <td><a href="#cc_optionset">Option Set</a></td>
+                <td>Provides a set of options to select from.</td>
+            </tr>
+            <tr>
+                <td><a href="#cc_date">Date field</a></td>
+                <td>Enables you to select a date.</td>
+            </tr>
+            <tr>
+                <td><a href="#cc_checkbox">Checkbox</a></td>
+                <td>Simple true/false input.</td>
+            </tr>
+            <tr>
+                <td><a href="#cc_required">Required Fields</a></td>
+                <td>A required field is marked with a red * next to the label.</td>
+            </tr>
+            <tr>
+                <td><a href="#cc_locked">Locked Fields</a></td>
+                <td>A locked field is marked with a lock icon next to the label and is read only.</td>
+            </tr>
+            <tr>
+                <td><a href="#cc_completesample">Complete Sample</a></td>
+                <td>A complete page example.</td>
+            </tr>
+        </table>
+        <p><strong>Note: </strong>It is best to include the controls in a table, this will make sure the controls are arranged correctly.</p>
+
+        <section>
+            <div class="anchor" id="cc_text">&nbsp;</div>
+            <h2>Single line of text</h2>
+            <h3>Regular Text</h3>
+            <div class="code">
+                <p>HTML</p>
+                <pre>
+&lt;tr&gt;
+    &lt;td&gt;
+        &lt;label for="name" required&gt;Account Name&lt;/label&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+        &lt;input id="name" type="text" placeholder="--" /&gt;
+    &lt;/td&gt;
+ &lt;/tr&gt;
+            </pre>
+            </div>
+            <h3>URL</h3>
+            <p>Specifying the data-type "url" wil make the content clickable. The link will always open in a new page.</p>
+            <div class="code">
+                <p>HTML</p>
+                <pre>
+&lt;tr&gt;
+    &lt;td&gt;
+        &lt;label for="website"&gt;Website&lt;/label&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+        &lt;a id="website" data-inlineedit="true" data-type="url"&gt;&lt;span&gt;www.realdolmen.com&lt;/span&gt;&lt;/a&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+            </pre>
+            </div>
+            <h3>Telephone</h3>
+            <p>Specifying the data-type "tel" wil make the content clickable. The link will use the "tel:" protocol to call with the preferred UC application.</p>
+            <div class="code">
+                <p>HTML</p>
+                <pre>
+&lt;tr&gt;
+    &lt;td&gt;
+        &lt;label for="telephone1"&gt;Telephone&lt;/label&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+        &lt;a id="telephone1" data-inlineedit="true" data-type="tel"&gt;&lt;span&gt;+32 2 801 55 55&lt;/span&gt;&lt;/a&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+            </pre>
+            </div>
+            <h3>Email</h3>
+            <p>Specifying the data-type "email" wil make the content clickable. The link will use the "mailto:" protocol to call with the preferred email application.</p>
+            <div class="code">
+                <p>HTML</p>
+                <pre>
+&lt;tr&gt;
+    &lt;td&gt;
+        &lt;label for="email"&gt;Email&lt;/label&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+        &lt;a id="email" data-inlineedit="true" data-type="email"&gt;&lt;span&gt;info@realdolmen.com&lt;/span&gt;&lt;/a&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+            </pre>
+            </div>
+        </section>
+
+        <section>
+            <div class="anchor" id="cc_lookup">&nbsp;</div>
+            <h2>Lookup</h2>
+            <p>The hidden input enables two-way databinding using knockout or another framework.</p>
+            <h3>Example</h3>
+            <div class="code">
+                <p>HTML</p>
+                <pre>
+&lt;tr&gt;
+    &lt;td&gt;
+        &lt;label for="parentaccount" &gt;Parent Account&lt;/label&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+        &lt;a id="parentaccount" data-entity="account" data-typecode="2" data-inlineedit="false" data-type="lookup"&gt;
+            &lt;input type="hidden" value="9F7DA12A-5500-E511-93FD-00155D603E27" /&gt;
+            &lt;span&gt;RealDolmen NV&lt;/span&gt;
+        &lt;/a&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+            </pre>
+            </div>
+        </section>
+
+        <section>
+            <div class="anchor" id="cc_optionset">&nbsp;</div>
+            <h2>Option Set</h2>
+            <h3>Example</h3>
+            <div class="code">
+                <p>HTML</p>
+                <pre>
+&lt;tr&gt;
+    &lt;td&gt;
+        &lt;label for="maritalstatus"&gt;Marital Status&lt;/label&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+        &lt;p class="selectValue"&gt;Single&lt;/p&gt;
+        &lt;select id="maritalstatus" size="5" controlmode="normal"&gt;
+            &lt;option title=""&gt;&lt;/option&gt;
+            &lt;option value="1" title="Single" selected="selected"&gt;Single&lt;/option&gt;
+            &lt;option value="2" title="Maried"&gt;Maried&lt;/option&gt;
+            &lt;option value="3" title="Divorced"&gt;Divorced&lt;/option&gt;
+            &lt;option value="4" title="Widowed"&gt;Widowed&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+            </pre>
+            </div>
+        </section>
+
+        <section>
+            <div class="anchor" id="cc_date">&nbsp;</div>
+            <h2>Date</h2>
+            <h3>Example</h3>
+            <div class="code">
+                <p>HTML</p>
+                <pre>
+&lt;tr&gt;
+    &lt;td&gt;
+        &lt;label for="startdate" &gt;Start Date&lt;/label&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+        &lt;input id="startdate" type="text" class="datetime" placeholder="--" /&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+            </pre>
+            </div>
+        </section>
+
+        <section>
+            <div class="anchor" id="cc_checkbox">&nbsp;</div>
+            <h2>Checkbox</h2>
+            <h3>Example</h3>
+            <div class="code">
+                <p>HTML</p>
+                <pre>
+&lt;tr&gt;
+    &lt;td&gt;
+        &lt;label for="validated"&gt;Validated&lt;/label&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+        &lt;input id="validated" type="checkbox" /&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+            </pre>
+            </div>
+        </section>
+
+        <section>
+            <div class="anchor" id="cc_required">&nbsp;</div>
+            <h2>Required</h2>
+            <p>You have to include the "required" attribute on both the label (visual) and the input (validation).</p>
+            <p>Validation is not yet included in this library.</p>
+            <h3>Example</h3>
+            <div class="code">
+                <p>HTML</p>
+                <pre>
+&lt;tr&gt;
+    &lt;td&gt;
+        &lt;label for="name" <strong>required</strong>&gt;Account Name&lt;/label&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+        &lt;input id="name" <strong>required</strong> type="text" placeholder="--" /&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+            </pre>
+            </div>
+        </section>
+
+        <section>
+            <div class="anchor" id="cc_locked">&nbsp;</div>
+            <h2>Locked</h2>
+            <p>You have to include the "readonly" attribute on both the label (visual) and the input (validation).</p>
+            <p>Validation is not yet included in this library.</p>
+            <h3>Example</h3>
+            <div class="code">
+                <p>HTML</p>
+                <pre>
+&lt;tr&gt;
+    &lt;td&gt;
+        &lt;label for="name" <strong>readonly</strong>&gt;Account Name&lt;/label&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+        &lt;input id="name" <strong>readonly</strong> type="text" placeholder="--" /&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+            </pre>
+            </div>
+        </section>
+
+        <section>
+            <div class="anchor" id="cc_completesample">&nbsp;</div>
+            <h2>Complete Sample Code</h2>
+            <p><a href="CRMStyle.html">See it in action.</a></p>
+            <div class="code">
+                <p>HTML</p>
+                <pre>
+                    &lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+    &lt;title&gt;CRM Style Page&lt;/title&gt;
+    &lt;link href="../css/CRM_Style.css" rel="stylesheet" /&gt;
+    &lt;link rel="stylesheet" href="../css/font_awesome.css"&gt;
+    &lt;!--&lt;link href="../css/Theme.css" rel="stylesheet" /&gt;--&gt;
+&lt;/head&gt;
+&lt;!--&lt;body class="crm2013"&gt;--&gt;
+&lt;!--&lt;body class="crm2015 showborders"&gt;--&gt;
+    &lt;body class="crm2016"&gt;
+    &lt;nav&gt;
+        &lt;h1&gt;
+            &lt;a href="#top"&gt;RealDolmen CRM Style&lt;/a&gt;
+        &lt;/h1&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href=""&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=""&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=""&gt;Link 3&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=""&gt;Link 4&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=""&gt;Link 5&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+    &lt;div class="commandbar"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fa fa-step-backward"&gt;&lt;/i&gt; Statistics&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fa fa-gamepad"&gt;&lt;/i&gt; Dashboard&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fa fa-filter"&gt;&lt;/i&gt; Filters&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fa fa-print"&gt;&lt;/i&gt; Print&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fa fa-envelope"&gt;&lt;/i&gt; Send Email&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fa fa-calendar"&gt;&lt;/i&gt; Schedule&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;i class="fa fa-wrench"&gt;&lt;/i&gt; Settings&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class="form"&gt;
+        &lt;h1&gt;CRM Control Styles&lt;/h1&gt;
+        &lt;h4&gt;&lt;a href="samples.html#cc_completesample"&gt;Back to the samples page.&lt;/a&gt;&lt;/h4&gt;
+        &lt;h2&gt;Summary&lt;/h2&gt;
+        &lt;section&gt;
+            &lt;h3&gt;Account Information&lt;/h3&gt;
+            &lt;form&gt;
+                &lt;table&gt;
+                    &lt;!--TEXT--&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;
+                            &lt;label for="firstname" required&gt;First Name&lt;/label&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;input id="firstname" required type="text" placeholder="--" /&gt;
+                        &lt;/td&gt;
+                        &lt;td class="gutter"&gt;&nbsp;&lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;label for="lastname" required&gt;Lastname Name&lt;/label&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;input id="lastname" required type="text" placeholder="--" /&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;!--OPTIONSET--&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;
+                            &lt;label for="maritalstatus"&gt;Marital Status&lt;/label&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;p class="selectValue"&gt;Single&lt;/p&gt;
+                            &lt;select id="maritalstatus" size="5" controlmode="normal"&gt;
+                                &lt;option title=""&gt;&lt;/option&gt;
+                                &lt;option value="1" title="Single" selected="selected"&gt;Single&lt;/option&gt;
+                                &lt;option value="2" title="Maried"&gt;Maried&lt;/option&gt;
+                                &lt;option value="3" title="Divorced"&gt;Divorced&lt;/option&gt;
+                                &lt;option value="4" title="Widowed"&gt;Widowed&lt;/option&gt;
+                            &lt;/select&gt;
+                        &lt;/td&gt;
+                        &lt;td class="gutter"&gt;&nbsp;&lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;label for="parentaccount" required&gt;Parent Account&lt;/label&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;a id="parentaccount" data-entity="contact" data-typecode="2" data-inlineedit="false" data-type="lookup"&gt;
+                                &lt;input type="hidden" value="9F7DA12A-5500-E511-93FD-00155D603E27" /&gt;
+                                &lt;span&gt;RealDolmen NV&lt;/span&gt;
+                            &lt;/a&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+            &lt;/form&gt;
+        &lt;/section&gt;
+        &lt;section&gt;
+            &lt;h3&gt;Contact Information&lt;/h3&gt;
+            &lt;form&gt;
+                &lt;table&gt;
+                    &lt;!--URL--&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;
+                            &lt;label for="website" readonly&gt;Website&lt;/label&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;a id="website" readonly data-inlineedit="true" data-type="url"&gt;&lt;span&gt;www.realdolmen.com&lt;/span&gt;&lt;/a&gt;
+                        &lt;/td&gt;
+                        &lt;td class="gutter"&gt;&nbsp;&lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;label for="telephone1" readonly&gt;Telephone&lt;/label&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;a id="telephone1" readonly data-inlineedit="true" data-type="tel"&gt;&lt;span&gt;+322 801 55 55&lt;/span&gt;&lt;/a&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;!--EMAIL--&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;
+                            &lt;label for="email"&gt;Email&lt;/label&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;a id="email" data-inlineedit="true" data-type="email"&gt;&lt;span&gt;info@realdolmen.com&lt;/span&gt;&lt;/a&gt;
+                        &lt;/td&gt;
+                        &lt;td class="gutter"&gt;&nbsp;&lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;label for="emailtwo"&gt;Email 2&lt;/label&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;a id="emailtwo" data-inlineedit="true" data-type="email"&gt;&lt;span&gt;info@realdolmen.com&lt;/span&gt;&lt;/a&gt;
+                            &lt;input type="text" style="display:none;" /&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+            &lt;/form&gt;
+        &lt;/section&gt;
+        &lt;section&gt;
+            &lt;h3&gt;Extra&lt;/h3&gt;
+            &lt;form&gt;
+                &lt;table&gt;
+                    &lt;!--DATETIME--&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;
+                            &lt;label for="startdate" required&gt;Start Date&lt;/label&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;input id="startdate" type="text" class="datetime" placeholder="--" /&gt;
+                        &lt;/td&gt;
+                        &lt;td class="gutter"&gt;&nbsp;&lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;label for="enddate"&gt;End Date&lt;/label&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;input id="enddate" type="text" class="datetime" placeholder="--" /&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;!--CheckBox--&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;
+                            &lt;label for="validated"&gt;Validated&lt;/label&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;input id="validated" type="checkbox" /&gt;
+                        &lt;/td&gt;
+                        &lt;td class="gutter"&gt;&nbsp;&lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;label for="options"&gt;Options&lt;/label&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;input id="options" type="radio" /&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+            &lt;/form&gt;
+        &lt;/section&gt;
+        &lt;button&gt;Add&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;script src="../../../ClientGlobalContext.js.aspx" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="../scripts/jQuery.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="../scripts/jquery_ui_1.10.4.custom.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="../scripts/RD.Libraries.CRMControls.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript"&gt;
+        //Wait for the DOM to load
+        $(document).ready(function () {
+            //initialize the actions for the custom controls
+            RD.Libraries.CustomControls.Initialize();
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </pre>
+            </div>
+        </section>
+
+    </article>
+    <article>
+        <div class="anchor" id="crmfetchkit">&nbsp;</div>
+        <h1>CrmFetchKit</h1>
+        <p>The RD.CRMFetchKit namespace contains the CrmFetchKit third party library.</p>
+        <p>It holds several methods to retrieve data as wel as the Assign message.</p>
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><a href="#getbyid">GetById</a></td>
+                <td>Instead of create a fetchxml query for a very simple query, this method should be used to load an records based on the id.</td>
+            </tr>
+            <tr>
+                <td><a href="#getbyidsync">GetByIdSync</a></td>
+                <td>Same method as <a href="#getbyid">GetById</a> except with synchronous execution.</td>
+            </tr>
+            <tr>
+                <td><a href="#fetch">Fetch</a></td>
+                <td>With the Fetch method is it possible to execute fetch-xml based query.</td>
+            </tr>
+            <tr>
+                <td><a href="#fetchsync">FetchSync</a></td>
+                <td>Same method as <a href="#fetch">Fetch</a> except with synchronous execution.</td>
+            </tr>
+            <tr>
+                <td><a href="#fetchmore">FetchMore</a></td>
+                <td>In a situation where the developer needs more control over the loaded data, the FetchMore method should be used.</td>
+            </tr>
+            <tr>
+                <td><a href="#fetchmoresync">FetchMoreSync</a></td>
+                <td>Same method as <a href="#fetchmore">FetchMore</a> except with synchronous execution.</td>
+            </tr>
+            <tr>
+                <td><a href="#fetchAll">FetchAll</a></td>
+                <td>To address the 5.000 records query limit of Dynamics CRM (a single request return at a maximum 5.000 records) provides the CrmFetchKit with the FetchAll method an option to load all records retunred by an query.</td>
+            </tr>
+            <tr>
+                <td><a href="#fetchbypage">FetchByPage</a></td>
+                <td>This method allows the load of records per page-number.</td>
+            </tr>
+            <tr>
+                <td><a href="#assign">Assign</a></td>
+                <td>The Assign method allows the modification of the owner of an CRM record.</td>
+            </tr>
+            <tr>
+                <td><a href="#assignsync">AssignSync</a></td>
+                <td>Same method as <a href="#assign">Assign</a> except with synchronous execution.</td>
+            </tr>
+        </table>
+
+        <section>
+            <div class="anchor" id="getbyid">&nbsp;</div>
+            <h2>RD.CRMFetchKit.getById()</h2>
+            <h3>Parameters</h3>
+            <dl>
+                <dt>Entityname</dt>
+                <dd>
+                    <p><strong>Type:</strong> String</p>
+                    <p>The logical name of the entity you want to retrieve.</p>
+                </dd>
+                <dt>Id</dt>
+                <dd>
+                    <p><strong>Type:</strong> String</p>
+                    <p>The string representation of the Guid of the record you want to retrieve.</p>
+                </dd>
+                <dt>Columns</dt>
+                <dd>
+                    <p><strong>Type:</strong> Array (String)</p>
+                    <p>An Array containing the columns you want to retrieve.</p>
+                </dd>
+            </dl>
+
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <pre>
+var accountid = '06887701-2642-4a53-99ba-c24ce1a5688b', 
+    columns = ['name', 'donotfax', 'donotemail', 'createdon'];
+RD.CRMFetchKit.GetById('account', accountid, columns).then(function(account) {
+    console.log(account.getValue('name'));
+});
+            </pre>
+            </div>
+        </section>
+
+        <section>
+            <div class="anchor" id="getbyidsync">&nbsp;</div>
+            <h2>RD.CRMFetchKit.getByIdSync()</h2>
+            <h3>Parameters</h3>
+            <dl>
+                <dt>Entityname</dt>
+                <dd>
+                    <p><strong>Type:</strong> String</p>
+                    <p>The logical name of the entity you want to retrieve.</p>
+                </dd>
+                <dt>Id</dt>
+                <dd>
+                    <p><strong>Type:</strong> String</p>
+                    <p>The string representation of the Guid of the record you want to retrieve.</p>
+                </dd>
+                <dt>Columns</dt>
+                <dd>
+                    <p><strong>Type:</strong> Array (String)</p>
+                    <p>An Array containing the columns you want to retrieve.</p>
+                </dd>
+            </dl>
+
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <pre>
+var accountid = '06887701-2642-4a53-99ba-c24ce1a5688b',
+    columns = ['name', 'donotfax', 'donotemail', 'createdon'],
+    account;
+account = RD.CRMFetchKit.GetByIdSync('account', accountid,  columns);
+console.log(account.getValue('name'));
+            </pre>
+            </div>
+        </section>
+
+        <section>
+            <div class="anchor" id="fetch">&nbsp;</div>
+            <h2>RD.CRMFetchKit.Fetch()</h2>
+            <h3>Parameters</h3>
+            <dl>
+                <dt>FetchXML</dt>
+                <dd>
+                    <p><strong>Type:</strong> String</p>
+                    <p>The fetch XML determining what you want to retrieve.</p>
+                </dd>
+            </dl>
+
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <pre>
+<textarea rows="11" cols="80" style="border:none; overflow: hidden; resize:none;">
+var fetchxml = [
+    '<fetch version="1.0">',
+    '  <entity name="account">',
+    '    <attribute name="name" />',
+    '    <attribute name="accountid" />',
+    '    <filter type="and">',
+    '      <condition attribute="name" operator="eq" value="foobar" />',
+    '    </filter>',
+    '  </entity>',
+    '</fetch>'].join('');
+</textarea>
+RD.CRMFetchKit.Fetch(fetchxml).then(function(entities) {
+     for (var i = 0; i &lt; entities.length; i++) {
+        console.log(entities[0].getValue('name'));
+    }
+});
+            </pre>
+            </div>
+        </section>
+
+        <section>
+            <div class="anchor" id="fetchsync">&nbsp;</div>
+            <h2>RD.CRMFetchKit.FetchSync()</h2>
+            <h3>Parameters</h3>
+            <dl>
+                <dt>FetchXML</dt>
+                <dd>
+                    <p><strong>Type:</strong> String</p>
+                    <p>The fetch XML determining what you want to retrieve.</p>
+                </dd>
+            </dl>
+
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <pre>
+<textarea rows="10" cols="80" style="border:none; overflow: hidden; resize:none;">
+var fetchxml = [
+    '<fetch version="1.0">',
+    '  <entity name="account">',
+    '    <attribute name="name" />',
+    '    <attribute name="accountid" />',
+    '    <filter type="and">',
+    '      <condition attribute="name" operator="eq" value="foobar" />',
+    '    </filter>',
+    '  </entity>',
+    '</fetch>'].join('');
+</textarea>
+var entities = RD.CRMFetchKit.FetchSync(fetchxml);
+for(var i = 0; i &lt; entities.length; i++) {
+    console.log(entities[0].getValue('name'))
+}
+                    </pre>
+            </div>
+        </section>
+
+        <section>
+            <div class="anchor" id="fetchmore">&nbsp;</div>
+            <h2>RD.CRMFetchKit.FetchMore()</h2>
+            <h3>Parameters</h3>
+            <dl>
+                <dt>FetchXML</dt>
+                <dd>
+                    <p><strong>Type:</strong> String</p>
+                    <p>The fetch XML determining what you want to retrieve.</p>
+                </dd>
+            </dl>
+            <h3>Returns:</h3>
+            <dl>
+                <dt>Reponse</dt>
+                <dd>
+                    <p><strong>Type:</strong> Object</p>
+                    <p>An object that supports the following properties:</p>
+                    <ul>
+                        <li>
+                            totalRecordCount (number)
+                        </li>
+                        <li>
+                            moreRecords (boolean)
+                        </li>
+                        <li>
+                            pagingCookie (string)
+                        </li>
+                        <li>
+                            entityName (string)
+                        </li>
+                        <li>
+                            entities (array ob BusinessEntity objects)
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <pre>
+<textarea rows="11" cols="80" style="border:none; overflow: hidden; resize:none;">
+var fetchxml = [
+    '<fetch version="1.0" returntotalrecordcount="true" count="10">',
+    '  <entity name="contact">',
+    '    <attribute name="lastname" />',
+    '    <attribute name="contactid" />',
+    '    <filter type="and">',
+    '      <condition attribute="lastname" operator="like" value="foobar" />',
+    '    </filter>',
+    '  </entity>',
+    '</fetch>'].join('');
+</textarea>
+RD.CRMFetchKit.FetchMore(fetchxml).then(function(response){
+    console.log(response.totalRecordCount);
+    console.log(response.moreRecords);
+    console.log(response.entityName);
+    console.log(response.pagingCookie);
+    for(var i = 0; i &lt; response.entities; i++){
+        console.log(response.entities[i].getValue('lastname'));
+    }
+});
+                    </pre>
+            </div>
+
+        </section>
+
+        <section>
+            <div class="anchor" id="fetchmoresync">&nbsp;</div>
+            <h2>RD.CRMFetchKit.FetchMoreSync()</h2>
+            <h3>Parameters</h3>
+            <dl>
+                <dt>FetchXML</dt>
+                <dd>
+                    <p><strong>Type:</strong> String</p>
+                    <p>The fetch XML determining what you want to retrieve.</p>
+                </dd>
+            </dl>
+            <h3>Returns:</h3>
+            <dl>
+                <dt>Reponse</dt>
+                <dd>
+                    <p><strong>Type:</strong> Object</p>
+                    <p>An object that supports the following properties:</p>
+                    <ul>
+                        <li>
+                            totalRecordCount (number)
+                        </li>
+                        <li>
+                            moreRecords (boolean)
+                        </li>
+                        <li>
+                            pagingCookie (string)
+                        </li>
+                        <li>
+                            entityName (string)
+                        </li>
+                        <li>
+                            entities (array ob BusinessEntity objects)
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <pre>
+<textarea rows="11" cols="80" style="border:none; overflow: hidden; resize:none;">
+var fetchxml = [
+    '<fetch version="1.0" returntotalrecordcount="true" count="10">',
+    '  <entity name="contact">',
+    '    <attribute name="lastname" />',
+    '    <attribute name="contactid" />',
+    '    <filter type="and">',
+    '      <condition attribute="lastname" operator="like" value="foobar" />',
+    '    </filter>',
+    '  </entity>',
+    '</fetch>'].join('');
+</textarea>
+var RD.CRMFetchKit.FetchMoreSync(fetchxml);
+console.log(response.totalRecordCount);
+console.log(response.moreRecords);
+console.log(response.entityName);
+console.log(response.pagingCookie);
+for(var i = 0; i &lt; response.entities; i++){
+    console.log(response.entities[i].getValue('lastname'));
+}
+                    </pre>
+            </div>
+
+        </section>
+
+        <section>
+            <div class="anchor" id="fetchall">&nbsp;</div>
+            <h2>RD.CRMFetchKit.FetchAll()</h2>
+            <p><span class="note">Note:</span> This method supports only the asynchronous execution.</p>
+            <h3>Parameters</h3>
+            <dl>
+                <dt>FetchXML</dt>
+                <dd>
+                    <p><strong>Type:</strong> String</p>
+                    <p>The fetch XML determining what you want to retrieve.</p>
+                </dd>
+            </dl>
+
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <pre>
+// query loads all contact records in the system
+<textarea rows="8" cols="80" style="border:none; overflow: hidden; resize:none;">
+var fetchxml = [
+    '<fetch version="1.0">',
+    '  <entity name="contact">',
+    '    <attribute name="lastname" />',
+    '    <attribute name="contactid" />',
+    '  </entity>',
+    '</fetch>'].join('');
+</textarea>
+RD.CRMFetchKit.FetchAll(fetchxml).then(function(entities){
+    for(var i = 0; i &lt; entities.length; i++) {
+        console.log(entities[i].getValue('lastname'));
+    }
+});
+                    </pre>
+            </div>
+        </section>
+
+        <section>
+            <div class="anchor" id="fetchbypage">&nbsp;</div>
+            <h2>RD.CRMFetchKit.FetchByPage()</h2>
+            <h3>Parameters</h3>
+            <dl>
+                <dt>FetchXML</dt>
+                <dd>
+                    <p><strong>Type:</strong> String</p>
+                    <p>The fetch XML determining what you want to retrieve.</p>
+                </dd>
+                <dt>Pagenumber</dt>
+                <dd>
+                    <p><strong>Type:</strong> Integer</p>
+                    <p>The Number of the page you want to retrieve.</p>
+                </dd>
+                <dt>PaginCookie (Optional)</dt>
+                <dd>
+                    <p><strong>Type:</strong> Object</p>
+                    <p>The Paging Cookie from the previous page.</p>
+                </dd>
+            </dl>
+
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <pre>
+<textarea rows="8" cols="80" style="border:none; overflow: hidden; resize:none;">
+var fetchxml = [
+    '<fetch version="1.0">',
+    '  <entity name="contact">',
+    '    <attribute name="lastname" />',
+    '    <attribute name="contactid" />',
+    '  </entity>',
+    '</fetch>'].join('');
+</textarea>                        
+// load records from the first page
+RD.CRMFetchKit.FetchByPage(fetchxml, 1).then(function(responsePage1) {
+    // load records form the second page
+    return RD.CRMFetchKit.FetchByPage(fetchxml, 2, responsePage1.pagingCookie)
+        .then(function(responsePage2){
+            //...
+        });
+})
+                    </pre>
+            </div>
+        </section>
+
+        <section>
+            <div class="anchor" id="assign">&nbsp;</div>
+            <h2>RD.CRMFetchKit.Assign()</h2>
+            <h3>Parameters</h3>
+            <dl>
+                <dt>TargetId</dt>
+                <dd>
+                    <p><strong>Type:</strong> String</p>
+                    <p>String representation of the Guid of the record you want to assign to a user/team.</p>
+                </dd>
+                <dt>TargetEntityName</dt>
+                <dd>
+                    <p><strong>Type:</strong> String</p>
+                    <p>The Logical Name of the record you want to assign to a user/team.</p>
+                </dd>
+                <dt>AssigneeId</dt>
+                <dd>
+                    <p><strong>Type:</strong> String</p>
+                    <p>String representation of the Guid of the user/team you want to assign the record to.</p>
+                </dd>
+                <dt>AssigneeEntityName</dt>
+                <dd>
+                    <p><strong>Type:</strong> String</p>
+                    <p>The Logical Name of the user/team you want to assign the record to.</p>
+                </dd>
+            </dl>
+
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <pre>
+var contactid = '06569fb8-88d0-4588-bdb8-c20c19e29205',
+    // the team is the new owner of the concact record
+    teamid = '4797f323-76ac-4cf7-8342-b7c1bafd5154';
+RD.CRMFetchKit.Assign(contactid, 'contact', teamid, 'team').then(function(){
+    //..
+});
+                    </pre>
+            </div>
+        </section>
+
+        <section>
+            <div class="anchor" id="assignsync">&nbsp;</div>
+            <h2>RD.CRMFetchKit.AssignSync()</h2>
+            <h3>Parameters</h3>
+            <dl>
+                <dt>TargetId</dt>
+                <dd>
+                    <p><strong>Type:</strong> String</p>
+                    <p>String representation of the Guid of the record you want to assign to a user/team.</p>
+                </dd>
+                <dt>TargetEntityName</dt>
+                <dd>
+                    <p><strong>Type:</strong> String</p>
+                    <p>The Logical Name of the record you want to assign to a user/team.</p>
+                </dd>
+                <dt>AssigneeId</dt>
+                <dd>
+                    <p><strong>Type:</strong> String</p>
+                    <p>String representation of the Guid of the user/team you want to assign the record to.</p>
+                </dd>
+                <dt>AssigneeEntityName</dt>
+                <dd>
+                    <p>
+                    <p><strong>Type:</strong> String</p>
+                    <p>The Logical Name of the user/team you want to assign the record to.</p>
+                </dd>
+            </dl>
+
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <pre>
+var contactid = '06569fb8-88d0-4588-bdb8-c20c19e29205',
+    // the team is the new owner of the concact record
+    teamid = '4797f323-76ac-4cf7-8342-b7c1bafd5154';
+RD.CRMFetchKit.AssignSync(contactid, 'contact', teamid, 'team');
+            </pre>
+            </div>
+        </section>
+    </article>
+    <article>
+        <div class="anchor" id="rest">&nbsp;</div>
+        <h1>REST</h1>
+    </article>
+
+</body>
+</html>

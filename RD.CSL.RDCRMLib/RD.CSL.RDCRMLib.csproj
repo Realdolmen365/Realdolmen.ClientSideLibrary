@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{467C85FB-7A6E-40DE-856B-85772EB54885}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RD.CSL.RDCRMLib</RootNamespace>
+    <AssemblyName>RD.CSL.RDCRMLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="packages.config" />
+    <Content Include="rd_\clientside\fonts\fontawesome_webfont.eot" />
+    <Content Include="rd_\clientside\fonts\fontawesome_webfont.ttf" />
+    <Content Include="rd_\clientside\fonts\fontawesome_webfont.woff" />
+    <Content Include="rd_\clientside\fonts\fontawesome_webfont.woff2" />
+    <Content Include="rd_\clientside\fonts\FontAwesome.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="rd_\clientside\configuration.html" />
+    <Content Include="rd_\clientside\css\CRM_Style.css" />
+    <Content Include="rd_\clientside\css\font_awesome.css" />
+    <Content Include="rd_\clientside\css\Theme.css" />
+    <Content Include="rd_\clientside\fonts\fontawesome_webfont.svg" />
+    <Content Include="rd_\clientside\img\RD_Logo.png" />
+    <Content Include="rd_\clientside\RD.CSL.js" />
+    <Content Include="rd_\clientside\RD.CSL.min.js">
+      <DependentUpon>RD.CSL.js</DependentUpon>
+    </Content>
+    <Content Include="rd_\clientside\samples\CRMStyle.html" />
+    <Content Include="rd_\clientside\samples\samples.css" />
+    <Content Include="rd_\clientside\samples\samples.html" />
+    <Content Include="rd_\clientside\scripts\CrmFetchKit.bundle.js" />
+    <Content Include="rd_\clientside\scripts\jQuery.js" />
+    <Content Include="rd_\clientside\scripts\jquery_ui_1.10.4.custom.js" />
+    <Content Include="rd_\clientside\scripts\Knockout.js" />
+    <Content Include="rd_\clientside\scripts\moment.js" />
+    <Content Include="rd_\clientside\scripts\RD.Libraries.BL.js" />
+    <Content Include="rd_\clientside\scripts\RD.Libraries.BL.min.js">
+      <DependentUpon>RD.Libraries.BL.js</DependentUpon>
+    </Content>
+    <Content Include="rd_\clientside\scripts\RD.Libraries.CRMControls.js" />
+    <Content Include="rd_\clientside\scripts\RD.Libraries.CRMControls.min.js">
+      <DependentUpon>RD.Libraries.CRMControls.js</DependentUpon>
+    </Content>
+    <Content Include="rd_\clientside\scripts\RD.Libraries.CustomActionExecutor.js" />
+    <Content Include="rd_\clientside\scripts\RD.Libraries.CustomActionExecutor.min.js">
+      <DependentUpon>RD.Libraries.CustomActionExecutor.js</DependentUpon>
+    </Content>
+    <Content Include="rd_\clientside\scripts\RD.Libraries.FormType.js" />
+    <Content Include="rd_\clientside\scripts\RD.Libraries.FormType.min.js">
+      <DependentUpon>RD.Libraries.FormType.js</DependentUpon>
+    </Content>
+    <Content Include="rd_\clientside\scripts\RD.Libraries.Helpers.js" />
+    <Content Include="rd_\clientside\scripts\RD.Libraries.Helpers.min.js">
+      <DependentUpon>RD.Libraries.Helpers.js</DependentUpon>
+    </Content>
+    <Content Include="rd_\clientside\scripts\RD.Libraries.IBAN.js" />
+    <Content Include="rd_\clientside\scripts\RD.Libraries.IBAN.min.js">
+      <DependentUpon>RD.Libraries.IBAN.js</DependentUpon>
+    </Content>
+    <Content Include="rd_\clientside\scripts\RD.Libraries.PhoneFormat.js" />
+    <Content Include="rd_\clientside\scripts\RD.Libraries.PhoneFormat.min.js">
+      <DependentUpon>RD.Libraries.PhoneFormat.js</DependentUpon>
+    </Content>
+    <Content Include="rd_\clientside\scripts\RD.Libraries.WebAPI.js" />
+    <Content Include="rd_\clientside\scripts\RD.Libraries.WebAPI.min.js">
+      <DependentUpon>RD.Libraries.WebAPI.js</DependentUpon>
+    </Content>
+    <Content Include="rd_\clientside\scripts\SDK.REST.js" />
+    <Content Include="rd_\clientside\RD.CSL.Test.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56125</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56125/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets'))" />
+  </Target>
+  <Import Project="..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets" Condition="Exists('..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

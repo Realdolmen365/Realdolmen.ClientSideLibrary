@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
@@ -18,14 +18,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://tfs.realdolmen.com/tfs/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = RD.CSL.RDCRMLib\\RD.CSL.RDCRMLib.csproj
-		SccProjectName1 = RD.CSL.RDCRMLib
-		SccLocalPath1 = RD.CSL.RDCRMLib
 	EndGlobalSection
 EndGlobal

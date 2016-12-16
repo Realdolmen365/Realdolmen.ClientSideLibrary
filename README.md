@@ -1,17 +1,6 @@
 <html>
 <head>
-<style>
-body{
-	font-family: "Segoe UI Light","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
-	background-color: #f1f1f1;
-}
-h1, h2{
-	color: #4EAF48 ;
-}
-a {
-	color: #4EAF48;
-}
-</style>
+
 </head>
 <body>
 <h1>Realdolmen ClientSide library</h1>

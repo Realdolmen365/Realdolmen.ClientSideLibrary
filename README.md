@@ -33,7 +33,7 @@ The configuration.html also links to a samples.html file that contains informati
 <h2>License</h2>
 The Realdolmen ClientSide library is provided under the <a href="https://opensource.org/licenses/MIT">MIT license</a>.
 <p>
-	
+website: <a href="http://www.realdolmen.com/">www.realdolmen.com</a>	
 </p>
 </body>
 </html>

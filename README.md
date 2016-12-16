@@ -1,6 +1,17 @@
 <html>
 <head>
-
+<style>
+body{
+	font-family: "Segoe UI Light","Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+	background-color: #f1f1f1;
+}
+h1, h2{
+	color: #4EAF48 ;
+}
+a {
+	color: #4EAF48;
+}
+</style>
 </head>
 <body>
 <h1>Realdolmen ClientSide library</h1>
@@ -24,6 +35,15 @@ Download the files and add the complete "rd_" folder and all it's content to a n
 The library can be used by including the "rd_/clientside/RD.CSL.js" as the first script on the form. After which the "RD" namespace will be available in your scripts. This can be done by simply dragging the RD.CSL.js file in your new js file in Visual Studio. Visual Studio will auto generate a reference tag.</br>
 
 The scripts contains JSDoc comment tags. So when adding the RD.CSL.js library as a reference when scripting a new JS file you are provided with information about code elements.
+</br>
+<p>
+There is a testscript to check all the functionalities contained in the Realdolmen ClientSide library. To execute the test:
+<ul>
+	<li>Add RD.CSL.JS and RD.CSL.Test.js libraries onload in a form in CRM</li>
+	<li>Execute "RD.Test.TestRDCSL" function onload</li>
+</ul>
+You will get an overview of all passed and failed tests in the console and a pass rate in percentages.
+</p>
 </p>
 <h2>Documentation &amp; Samples</h2>
 <p>

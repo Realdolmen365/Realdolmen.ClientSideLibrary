@@ -2,6 +2,10 @@
 "use strict";
 var RD = window.RD || { _namespace: true };
 RD.Libraries = RD.Libraries || { _namespace: true };
+
+//getGlobalContext only exist in CRM version >= 9.0
+var CRM_Version9 = typeof Xrm !== "undefined" && typeof Xrm.Utility !== "undefined" && typeof Xrm.Utility.getGlobalContext !== "undefined";
+
 /**
  * @description RD.BL contains functionality specific for Belgium
  * BL = Belgium Library
@@ -48,6 +52,7 @@ RD.Libraries.BL = RD.Libraries.BL || { _namespace: true };
         }
         return true;
     };
+
     /**
      * Validates the Social security number
      * @param {string} fieldname The fieldname of the attribute containing the Social security number.
@@ -55,7 +60,26 @@ RD.Libraries.BL = RD.Libraries.BL || { _namespace: true };
      * @returns {boolean} 
      */
     this.ValidateRijksregister = function (fieldname, birthdateFieldname) {
-        var att = Xrm.Page.getAttribute(fieldname);
+        this.ValidateRijksregister(null, fieldname, birthdateFieldname);
+    }
+
+    /**
+     * Validates the Social security number
+     * @param {object} executionContext The execution context as first parameter (check) .
+     * @param {string} fieldname The fieldname of the attribute containing the Social security number.
+     * @param {string} birthdateFieldname The fieldname of the birthdate
+     * @returns {boolean} 
+     */
+    this.ValidateRijksregister = function (executionContext, fieldname, birthdateFieldname) {
+        var att = "";        
+        if (!CRM_Version9) {
+            att = Xrm.Page.getAttribute(fieldname);
+        }
+        else {
+            var formContext = executionContext.getFormContext();
+            att = formContext.getAttribute(fieldname);            
+        }
+                
         var rgr;
         if (att != null) {
             rgr = att.getValue();
@@ -66,7 +90,17 @@ RD.Libraries.BL = RD.Libraries.BL || { _namespace: true };
                 var valid = false;
                 var birthdateField = null;
                 var socialsecuritynr = rgr;
-                if (birthdateFieldname != null) birthdateField = Xrm.Page.getAttribute(birthdateFieldname);
+                if (birthdateFieldname != null)
+                {
+                    if (!CRM_Version9) {
+                        birthdateField = Xrm.Page.getAttribute(birthdateFieldname);
+                    }
+                    else {
+                        var formContext = executionContext.getFormContext();
+                        birthdateField = formContext.getAttribute(birthdateFieldname);
+                    }
+                }
+
                 if (birthdateField != null && birthdateField.getValue() != null) {
                     var birthdate = birthdateField.getValue();
                     if (birthdate.getFullYear() < 2000) {
@@ -113,7 +147,13 @@ RD.Libraries.BL = RD.Libraries.BL || { _namespace: true };
      * @returns {} 
      */
     this.GetError = function (code) {
-        var userLcid = Xrm.Page.context.getUserLcid();
+        var userLcid = null;
+        if (!CRM_Version9) {
+            userLcid = Xrm.Page.context.getUserLcid();            
+        }
+        else {
+            userLcid = Xrm.Utility.getGlobalContext().userSettings.languageId;
+        }           
 
         var messages = {
             BL001: {

@@ -1,0 +1,8 @@
+﻿Opening repositories:
+C:\Users\gm\Source\Repos\Realdolmen.ClientSideLibrary
+Undoing edit: C:\Users\gm\Source\Repos\Realdolmen.ClientSideLibrary\RD.CSL.RDCRMLib\rd_\clientside\scripts\RD.Libraries.CRMControls.js
+Undoing none: C:\Users\gm\Source\repos\Realdolmen.ClientSideLibrary\RD.CSL.RDCRMLib\rd_\clientside\scripts\RD.Libraries.CRMControls.js
+Undoing edit: C:\Users\gm\Source\Repos\Realdolmen.ClientSideLibrary\RD.CSL.RDCRMLib\rd_\clientside\scripts\RD.Libraries.FormType.js
+Undoing edit: C:\Users\gm\Source\Repos\Realdolmen.ClientSideLibrary\RD.CSL.RDCRMLib\rd_\clientside\scripts\RD.Libraries.Helpers.js
+Undoing none: C:\Users\gm\Source\repos\Realdolmen.ClientSideLibrary\RD.CSL.RDCRMLib\rd_\clientside\scripts\RD.Libraries.WebAPI.js
+Undoing none: C:\Users\gm\Source\repos\Realdolmen.ClientSideLibrary\RD.CSL.RDCRMLib\rd_\clientside\scripts\RD.Libraries.WebAPI.js

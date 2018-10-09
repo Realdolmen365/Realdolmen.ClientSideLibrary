@@ -65,7 +65,7 @@ RD.Libraries.BL = RD.Libraries.BL || { _namespace: true };
 
     /**
      * Validates the Social security number
-     * @param {object} executionContext The execution context as first parameter (check) .
+     * @param {object} executionContext The execution context as first parameter (check)
      * @param {string} fieldname The fieldname of the attribute containing the Social security number.
      * @param {string} birthdateFieldname The fieldname of the birthdate
      * @returns {boolean} 

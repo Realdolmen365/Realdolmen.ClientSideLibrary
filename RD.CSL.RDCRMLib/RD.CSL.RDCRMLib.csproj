@@ -28,6 +28,7 @@
     <SccProvider>SAK</SccProvider>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -84,9 +85,12 @@
     <Content Include="rd_\clientside\scripts\RD.Libraries.CRMControls.min.js">
       <DependentUpon>RD.Libraries.CRMControls.js</DependentUpon>
     </Content>
-    <Content Include="rd_\clientside\scripts\RD.Libraries.CustomActionExecutor.js" />
+    <Content Include="rd_\clientside\scripts\RD.Libraries.CustomActionExecutor.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="rd_\clientside\scripts\RD.Libraries.CustomActionExecutor.min.js">
       <DependentUpon>RD.Libraries.CustomActionExecutor.js</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="rd_\clientside\scripts\RD.Libraries.FormType.js" />
     <Content Include="rd_\clientside\scripts\RD.Libraries.FormType.min.js">

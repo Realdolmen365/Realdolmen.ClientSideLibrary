@@ -1,9 +1,13 @@
-﻿/// <reference path="../RD.CSL.js" />
+/// <reference path="../RD.CSL.js" />
 //Ensure only one copy of the RD namespace exists.
 "use strict";
 
 var RD = window.RD || { _namespace: true };
 RD.Libraries = RD.Libraries || { _namespace: true };
+
+//getGlobalContext only exist in CRM version >= 9.0
+var CRM_Version9 = typeof Xrm !== "undefined" && typeof Xrm.Utility !== "undefined" && typeof Xrm.Utility.getGlobalContext !== "undefined";
+
 /**
  * @description RD.FormType holds properties to help determine the current form type
  * License: MIT (http://www.opensource.org/licenses/mit-license.php)
@@ -16,11 +20,27 @@ RD.Libraries.FormType = RD.Libraries.FormType || { _namespace: true };
      * @description Compares the current form type to a value
      * @param {int} value Value to check against the formtype
      * @returns {boolean} 
-     */
+    */
     this._isFormType = function (value) {
+        this._isFormType(null, value);
+    }
+
+    /**
+     * @description Compares the current form type to a value
+     * @param {object} executionContext The execution context as first parameter (check)
+     * @param {int} value Value to check against the formtype
+     * @returns {boolean} 
+    */
+    this._isFormType = function (executionContext, value) {
         //XRM object checken voor undefined
         var formType = null;
-        if (typeof Xrm !== "undefined" && typeof Xrm.Page !== "undefined" && typeof Xrm.Page.ui !== "undefined" && Xrm.Page.ui != null) formType = Xrm.Page.ui.getFormType();
+        if (!CRM_Version9) {
+            if (typeof Xrm !== "undefined" && typeof Xrm.Page !== "undefined" && typeof Xrm.Page.ui !== "undefined" && Xrm.Page.ui != null) formType = Xrm.Page.ui.getFormType();
+        }
+        else {
+            var formContext = executionContext.getFormContext();
+            if (typeof formContext !== "undefined" && typeof formContext.ui !== "undefined" && formContext.ui.getFormType != null) formType = formContext.ui.getFormType();
+        }
 
         return formType === value;
     };

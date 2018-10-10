@@ -182,7 +182,7 @@ RD.LoadScript("rd_/clientside/scripts/jquery.js");
     <article>
         <div class="anchor" id="helpers"></div>
         <h1>Helpers</h1>
-        <p>The RD.Helpers library contains the following helper functions:</p>
+        <p>The RD.Libraries.Helpers library contains the following helper functions:</p>
         <table>
             <tr>
                 <th>Name</th>
@@ -224,24 +224,35 @@ RD.Helpers.Log("I want to log this text to the console.");
         </section>
         <div class="anchor" id="usage-dependantpicklists">&nbsp;</div>
         <section>
-            <h2>RD.Helpers.DependantPicklists()</h2>
+            <h2>RD.Libraries.Helpers.DependantPicklists()</h2>
             <h3>Parameters</h3>
             <dl>
+                <dt>ExecutionContext CRM 365 v9.0</dt>
+                <dd>
+                    <p>
+                        <strong>Type:</strong> String
+                    </p>
+                    <p>The execution context as first parameter (check).
+                       Not required for CRM versions < 9.0</p>
+                </dd>
                 <dt>Parent Field Name</dt>
                 <dd>
-                    <p><strong>Type:</strong> String
+                    <p>
+                        <strong>Type:</strong> String
                     </p>
                     <p>The logical name of the field that filters the other field.</p>
                 </dd>
                 <dt>Dependant Field Name</dt>
                 <dd>
-                    <p><strong>Type:</strong> String
+                    <p>
+                        <strong>Type:</strong> String
                     </p>
                     <p>The logical name of the field that will be filtered.</p>
                 </dd>
                 <dt>Mapping</dt>
                 <dd>
-                    <p><strong>Type:</strong> Array
+                    <p>
+                        <strong>Type:</strong> Array
                     </p>
                     <p>The mapping between the values of the parent field and the values of the filtered field.</p>
                 </dd>
@@ -258,6 +269,8 @@ var mapping = {
     200000001: [200000003, 200000004, 200000005]    //Dutch values
 };
 RD.Helpers.DependantPicklists("new_parentfield", "new_filteredfield", mapping);
+or
+RD.Helpers.DependantPicklists(executionContext, "new_parentfield", "new_filteredfield", mapping);
             </pre>
             </div>
         </section>

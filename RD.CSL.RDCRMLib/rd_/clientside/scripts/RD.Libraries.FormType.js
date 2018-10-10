@@ -32,16 +32,10 @@ RD.Libraries.FormType = RD.Libraries.FormType || { _namespace: true };
      * @returns {boolean} 
     */
     this._isFormType = function (executionContext, value) {
-        //XRM object checken voor undefined
-        var formType = null;
-        if (!CRM_Version9) {
-            if (typeof Xrm !== "undefined" && typeof Xrm.Page !== "undefined" && typeof Xrm.Page.ui !== "undefined" && Xrm.Page.ui != null) formType = Xrm.Page.ui.getFormType();
-        }
-        else {
-            var formContext = executionContext.getFormContext();
-            if (typeof formContext !== "undefined" && typeof formContext.ui !== "undefined" && formContext.ui.getFormType != null) formType = formContext.ui.getFormType();
-        }
-
+        // switch to new object for CRM version >= 9
+        var pageOrFormContext = executionContext == null ? Xrm.Page : executionContext.getFormContext().ui;
+        var formType = pageOrFormContext.getFormType();
+        
         return formType === value;
     };
 }).call(RD.Libraries.FormType);

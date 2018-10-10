@@ -71,15 +71,9 @@ RD.Libraries.BL = RD.Libraries.BL || { _namespace: true };
      * @returns {boolean} 
      */
     this.ValidateRijksregister = function (executionContext, fieldname, birthdateFieldname) {
-        var att = "";        
-        if (!CRM_Version9) {
-            att = Xrm.Page.getAttribute(fieldname);
-        }
-        else {
-            var formContext = executionContext.getFormContext();
-            att = formContext.getAttribute(fieldname);            
-        }
-                
+        // switch to new object for CRM version >= 9
+        var pageOrFormContext = executionContext == null ? Xrm.Page : executionContext.getFormContext();
+        var att = pageOrFormContext.getAttribute(fieldname);                        
         var rgr;
         if (att != null) {
             rgr = att.getValue();
@@ -91,14 +85,8 @@ RD.Libraries.BL = RD.Libraries.BL || { _namespace: true };
                 var birthdateField = null;
                 var socialsecuritynr = rgr;
                 if (birthdateFieldname != null)
-                {
-                    if (!CRM_Version9) {
-                        birthdateField = Xrm.Page.getAttribute(birthdateFieldname);
-                    }
-                    else {
-                        var formContext = executionContext.getFormContext();
-                        birthdateField = formContext.getAttribute(birthdateFieldname);
-                    }
+                {                    
+                    birthdateField = pageOrFormContext.getAttribute(birthdateFieldname);
                 }
 
                 if (birthdateField != null && birthdateField.getValue() != null) {
@@ -147,6 +135,7 @@ RD.Libraries.BL = RD.Libraries.BL || { _namespace: true };
      * @returns {} 
      */
     this.GetError = function (code) {
+        // switch to new object for CRM version >= 9
         var userLcid = null;
         if (!CRM_Version9) {
             userLcid = Xrm.Page.context.getUserLcid();            

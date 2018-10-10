@@ -3,6 +3,10 @@
 
 var RD = window.RD || { _namespace: true };
 RD.Libraries = RD.Libraries || { _namespace: true };
+
+//getGlobalContext only exist in CRM version >= 9.0
+var CRM_Version9 = typeof Xrm !== "undefined" && typeof Xrm.Utility !== "undefined" && typeof Xrm.Utility.getGlobalContext !== "undefined";
+
 /**
  * @description Helpers library contains all common functionality
  * License: MIT (http://www.opensource.org/licenses/mit-license.php)
@@ -27,37 +31,55 @@ RD.Libraries.Helpers = RD.Libraries.Helpers || { _namespace: true };
      * @returns {} 
      */
     this.DependantPicklists = function (parentFieldName, dependantFieldName, mapping) {
+        this.DependantPicklist(null, parentFieldName, dependantFieldName, mapping);
+    }
+
+     /**
+     * @description Filters one optionSet based on another field
+     * @param {object} executionContext The execution context as first parameter (check)
+     * @param {string} parentFieldName Name of the parent field
+     * @param {string} dependantFieldName Name of the dependant field
+     * @param {string} mapping Filtered values
+     * @returns {} 
+     */
+
+    this.DependantPicklists = function (executionContext, parentFieldName, dependantFieldName, mapping) {
+        // switch to new object for CRM version >= 9
+        var pageOrFormContext = executionContext == null ? Xrm.Page : executionContext.getFormContext();
         var onChangeHandler = function onChangeHandler(parentFieldName, dependantFieldName, mapping) {
-            //store all options in _originalOptions
-            if (!Xrm.Page.getControl(dependantFieldName)._originalOptions) {
-                Xrm.Page.getControl(dependantFieldName)._originalOptions = Xrm.Page.getControl(dependantFieldName).getAttribute().getOptions();
+            //store all options in _originalOptions            
+                       
+            if (!pageOrFormContext.getControl(dependantFieldName)._originalOptions) {
+                pageOrFormContext.getControl(dependantFieldName)._originalOptions = pageOrFormContext.getControl(dependantFieldName).getAttribute().getOptions();
             }
+                                  
             //onload reset value after list filtering
-            var valueToRestore = Xrm.Page.getAttribute(dependantFieldName).getValue();
+            var valueToRestore = pageOrFormContext.getAttribute(dependantFieldName).getValue();
+   
             //construct filtered array
-            var filteredValues = mapping["" + Xrm.Page.getAttribute(parentFieldName).getValue()];
+            var filteredValues = mapping["" + pageOrFormContext.getAttribute(parentFieldName).getValue()];
             if (!filteredValues) filteredValues = [];
             //clear all options
-            Xrm.Page.getControl(dependantFieldName).clearOptions();
+            pageOrFormContext.getControl(dependantFieldName).clearOptions();
             //loop through filtered array
             for (var a = 0; a < filteredValues.length; a++) {
                 var optSetValue = filteredValues[a];
                 //loop through full array, searching for matching value
-                for (var b = 0; b < Xrm.Page.getControl(dependantFieldName)._originalOptions.length; b++) {
-                    var option = Xrm.Page.getControl(dependantFieldName)._originalOptions[b];
+                for (var b = 0; b < pageOrFormContext.getControl(dependantFieldName)._originalOptions.length; b++) {
+                    var option = pageOrFormContext.getControl(dependantFieldName)._originalOptions[b];
                     if (option.value == optSetValue) {
-                        Xrm.Page.getControl(dependantFieldName).addOption(option);
+                        pageOrFormContext.getControl(dependantFieldName).addOption(option);
                     }
                 }
             }
             if (filteredValues.indexOf(valueToRestore) != -1) {
-                Xrm.Page.getAttribute(dependantFieldName).setValue(valueToRestore);
+                pageOrFormContext.getAttribute(dependantFieldName).setValue(valueToRestore);
             } else {
-                Xrm.Page.getAttribute(dependantFieldName).setValue(null);
+                pageOrFormContext.getAttribute(dependantFieldName).setValue(null);
             }
         };
         //attach onChange event
-        Xrm.Page.getAttribute(parentFieldName).addOnChange(function () {
+        pageOrFormContext.getAttribute(parentFieldName).addOnChange(function () {
             onChangeHandler(parentFieldName, dependantFieldName, mapping);
         });
         //execute 1st time

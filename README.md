@@ -10,6 +10,7 @@
 	<li>CRM 8.0 (2016 On-premise)</li>
 	<li>CRM 8.1 (2016 Online)</li>
 	<li>CRM 8.2 (Dynamics 365 Online)</li>
+	<li>CRM 9.0 (Dynamics 365 Online) BETA</li>
 </ul>
 </p>
 <h2>Realdolmen.ClientSide</h2>

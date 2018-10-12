@@ -1,6 +1,5 @@
 ﻿/// <reference path="../RD.CSL.js" />
 'use strict';
-
 var RD = window.RD || { _namespace: true };
 RD.Libraries = RD.Libraries || { _namespace: true };
 

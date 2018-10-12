@@ -1,7 +1,7 @@
+/// <reference path="scripts/RD.Libraries.BL.js" />
 /// <reference path="../RD.CSL.js" />
 //Ensure only one copy of the RD namespace exists.
 "use strict";
-
 var RD = window.RD || { _namespace: true };
 RD.Libraries = RD.Libraries || { _namespace: true };
 
@@ -16,24 +16,16 @@ var CRM_Version9 = typeof Xrm !== "undefined" && typeof Xrm.Utility !== "undefin
 RD.Libraries.FormType = RD.Libraries.FormType || { _namespace: true };
 (function () {
     // All CRM Formtypes (source: https://msdn.microsoft.com/en-us/library/gg327828.aspx#BKMK_getFormType)
-    /**
-     * @description Compares the current form type to a value
-     * @param {int} value Value to check against the formtype
-     * @returns {boolean} 
-    */
-    this._isFormType = function (value) {
-        this._isFormType(null, value);
-    }
-
+    
     /**
      * @description Compares the current form type to a value
      * @param {object} executionContext The execution context as first parameter (check)
      * @param {int} value Value to check against the formtype
      * @returns {boolean} 
     */
-    this._isFormType = function (executionContext, value) {
+    this._isFormType = function (value) {
         // switch to new object for CRM version >= 9
-        var pageOrFormContext = executionContext == null ? Xrm.Page : executionContext.getFormContext().ui;
+        var pageOrFormContext = RD.SetExecutionContext == null ? Xrm.Page : RD.SetExecutionContext.getFormContext().ui;
         var formType = pageOrFormContext.getFormType();
         
         return formType === value;

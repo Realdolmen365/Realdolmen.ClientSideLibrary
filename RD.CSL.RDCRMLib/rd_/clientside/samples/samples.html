@@ -50,6 +50,12 @@
                 <td>Gets the XRM context object if it is available</td>
             </tr>
             <tr>
+                <td><a href="#usage-setexecutioncontext">SetExecutionContext</a></td>
+                <td>Function</td>
+                <td>RD</td>
+                <td>Set the XRM execution context if needed via checkbox (9.0 only)</td>
+            </tr>
+            <tr>
                 <td><a href="#usage-getclienturl">GetClientURL</a></td>
                 <td>Function</td>
                 <td>RD</td>
@@ -151,6 +157,40 @@ var url = RD.GetClientURL();
             </div>
         </section>
 
+        <div class="anchor" id="usage-getcontext">&nbsp;</div>
+        <section>
+            <h2>RD.GetContext()</h2>
+            <h3>Parameters</h3>
+            <dl>
+                <dt>None</dt>
+            </dl>
+
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <pre>
+var rdXrm = RD.GetContext();
+            </pre>
+            </div>
+        </section>
+
+        <div class="anchor" id="usage-setexecutioncontext">&nbsp;</div>
+        <section>
+            <h2>RD.SetExecutionContext()</h2>
+            <h3>Parameters</h3>
+            <dl>
+                <dt>Check "Pass execution context as first parameter"</dt>
+            </dl>
+
+            <h3>Example</h3>
+            <div class="code">
+                <p>JavaScript</p>
+                <pre>
+RD.GetExecutionContext;
+            </pre>
+            </div>
+        </section>
+
         <div class="anchor" id="usage-loadscript">&nbsp;</div>
         <section>
             <h2>RD.LoadScript()</h2>
@@ -173,7 +213,7 @@ RD.LoadScript("rd_/clientside/scripts/jquery.js");
             </div>
         </section>
 
-        
+
 
 
 

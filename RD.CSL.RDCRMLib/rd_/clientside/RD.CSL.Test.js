@@ -33,14 +33,15 @@ RD.Test = RD.Test || { _namespace: true };
         this.overallPass = false;
     }
     //This function contains all tests to be handled
-    this.TestRDCSL = function () {
+    this.TestRDCSL = function (executionContext) {
         try {
             console.log("Start executing all tests.");
             this.ExecuteBasicTests();
-            this.ExecuteFormTypeTests();
+            this.ExecuteFormTypeTests(executionContext);
             this.ExecuteLibrariesTests();
             this.ExecuteHelperTests();
             this.ExecuteBLTests();
+
             //Show test results
             var totalTests = (RD.Test._numberFailed + RD.Test._numberPassed);
             if (totalTests == 0) {
@@ -119,7 +120,7 @@ RD.Test = RD.Test || { _namespace: true };
         this._log("RD.WebAPI", !(this.isNull(webAPI2) && this.isObject(webAPI2)));//libraries will only be loaded once
         this.listLoadedScripts();
     }
-    this.ExecuteFormTypeTests = function(){
+    this.ExecuteFormTypeTests = function (executionContext){
         console.log("Execute Formtype tests");
         var formtype = null;
         if (Xrm != null && Xrm.Page != null && Xrm.Page.ui != null && this.isFunction(Xrm.Page.ui.getFormType)) {
@@ -153,7 +154,7 @@ RD.Test = RD.Test || { _namespace: true };
         if (this.isNull(formtype) && webresource == true)
         this._log("RD.FormType.WEBRESOURCE", (this.isNull(formtype) && webresource == true));
     }
-    this.ExecuteBasicTests = function() {
+    this.ExecuteBasicTests = function () {
         console.log("Execute Basic tests");
         this._log("RD._loaded", this.listLoadedScripts());
         var context = RD.GetContext();

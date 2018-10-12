@@ -22,10 +22,22 @@ var RD = window.RD || { _namespace: true };
      * @returns {XRMContext} The Xrm.Page.context object.
      */
     RD.GetContext = function () {
+        // CRM 9.0
+        if (typeof Xrm !== "undefined" && typeof Xrm.Utility !== "undefined" && typeof Xrm.Utility.getGlobalContext !== "undefined") return Xrm.Utility.getGlobalContext();
+        // < CRM 9.0
         if (typeof Xrm !== "undefined") return Xrm.Page.context;
         if (typeof GetGlobalContext !== "undefined") return GetGlobalContext();
         this.Log("Context is not available. Please contact your system administrator.");
     };
+
+    /**get execution context
+     * @param {Execution Context} executionContext 
+     * @returns {} 
+     */
+    
+    this.SetExecutionContext = function (executionContext) {
+        RD.SetExecutionContext = executionContext;
+    }  
 
     /**
     * @description Retrieves the current Client URL
@@ -74,7 +86,7 @@ var RD = window.RD || { _namespace: true };
             RD.LoadScript("rd_/clientside/scripts/RD.Libraries.Helpers.js");
             return RD.Libraries.Helpers;
         }
-    });
+    });    
     //Loads the FormType Library from the scripts
     Object.defineProperty(RD, "FormType", {
         get: function get() {

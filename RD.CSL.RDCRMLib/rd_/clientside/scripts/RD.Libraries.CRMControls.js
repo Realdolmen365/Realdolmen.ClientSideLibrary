@@ -168,8 +168,10 @@ RD.Libraries.CustomControls = RD.Libraries.CustomControls || { __namespace: true
 				var disableViewPicker = $(this).prev().attr("data-disableviewpicker");
 				var DialogOptions = new Xrm.DialogOptions();
 				DialogOptions.width = 800;
-				DialogOptions.height = 600;
-				var serverurl = Xrm.Page.context.getClientUrl();
+                DialogOptions.height = 600;
+                //TODO
+                var serverurl = Xrm.Page.context.getClientUrl();
+
 				var url = serverurl;
 				url += "/_controls/lookup/lookupsingle.aspx?";
 				url += "&browse=0";

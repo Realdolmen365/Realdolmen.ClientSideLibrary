@@ -123,9 +123,14 @@ RD.Test = RD.Test || { _namespace: true };
     this.ExecuteFormTypeTests = function (executionContext){
         console.log("Execute Formtype tests");
         var formtype = null;
-        if (Xrm != null && Xrm.Page != null && Xrm.Page.ui != null && this.isFunction(Xrm.Page.ui.getFormType)) {
+        
+        if (typeof Xrm !== "undefined" && typeof Xrm.Utility !== "undefined" && typeof Xrm.Utility.getGlobalContext !== "undefined") {
+            formtype = RD.SetExecutionContext.getFormContext().ui.getFormType();
+        }
+        else if (Xrm != null && Xrm.Page != null && Xrm.Page.ui != null && this.isFunction(Xrm.Page.ui.getFormType)) {
             formtype = Xrm.Page.ui.getFormType();
         }
+        
         var create = RD.FormType.CREATE;
         if (formtype == 1 && create == true)
         this._log("RD.FormType.CREATE", (formtype == 1 && create == true));

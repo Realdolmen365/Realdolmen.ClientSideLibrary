@@ -6156,6 +6156,10 @@ module.exports = (function(){
             context = GetGlobalContext();
             /* jshint ignore:end */
         }
+        else if (typeof Xrm !== "undefined" && typeof Xrm.Utility !== "undefined" && typeof Xrm.Utility.getGlobalContext !== "undefined")
+        {
+            context = Xrm.Utility.getGlobalContext();
+        }
         else if (typeof Xrm !== "undefined") {
             context = Xrm.Page.context;
         }

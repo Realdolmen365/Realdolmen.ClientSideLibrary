@@ -57,7 +57,7 @@
     <Content Include="rd_\clientside\fonts\fontawesome_webfont.woff" />
     <Content Include="rd_\clientside\fonts\fontawesome_webfont.woff2" />
     <Content Include="rd_\clientside\fonts\FontAwesome.otf" />
-    <Content Include="rd_\clientside\Latest Solution Unmanaged\RealdolmenCRMLibrary_1_0_0_9.zip" />
+    <Content Include="rd_\clientside\Latest Solution Unmanaged\RealdolmenCRMLibrary_1_0_1_9.zip" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="rd_\clientside\configuration.html" />
